@@ -1,0 +1,34 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+				 xmlns:ui="http://java.sun.com/jsf/facelets"
+				 xmlns:h="http://java.sun.com/jsf/html"
+				 xmlns:x="http://java.sun.com/jsf/composite/component/htmlx"
+				 xmlns:p="http://primefaces.org/ui"
+				 xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:panelGroup>
+
+		<ui:insert name="forceElement" />
+		<div class="prop" id="#{id}Prop">
+
+			<h:outputLabel id="#{id}l" value="#{label}" styleClass="name #{noBreak? 'noBreak' : ''}" for="#{id}">
+				<h:outputText value="#{empty labelSuffix ? ':' : labelSuffix}"
+							  rendered="#{empty showLabelSuffix ? true : showLabelSuffix}" />
+				<ui:fragment rendered="#{required or forceRequired}">
+					<span class="required">*</span>
+				</ui:fragment>
+			</h:outputLabel>
+
+			<span id="value" class="value">
+				<ui:insert/>
+			</span>
+			<ui:insert name="tooltip" >
+				<p:tooltip for="#{id}" styleClass="inTip" showEffect="slide" hideEffect="slide" />  
+			</ui:insert>	
+			<h:panelGroup layout="block" styleClass="errorElement">
+				<ui:insert name="messages" >
+					<p:message for="#{id}" id="#{id}m"  />
+				</ui:insert>
+			</h:panelGroup>
+		</div>
+	</h:panelGroup>
+</ui:composition>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:util="http://codingcrayons.com/jformbuilder"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<link rel="stylesheet" href="../../css/style.css" />
+	</head>
+
+	<body>
+		<div class="templateComment">
+			<p>
+				This file is part of FormBuilder.
+
+				FormBuilder is free software: you can redistribute it and/or modify
+				it under the terms of the GNU General Public License as published by
+				the Free Software Foundation, either version 3 of the License, or
+				(at your option) any later version.
+
+				FormBuilder is distributed in the hope that it will be useful,
+				but WITHOUT ANY WARRANTY; without even the implied warranty of
+				MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+				GNU General Public License for more details.
+
+				You should have received a copy of the GNU General Public License
+				along with FormBuilder.  If not, see http://www.gnu.org/licenses/
+
+				@see http://www.gnu.org/licenses/lgpl.txt
+
+				@author Tomas Cerny (tom.cerny@gmail.com)
+				@version 1.0 | Date 24.2.2008
+
+				This component renders select and layout in SeamForm
+				here are 2 types {enum, list}
+				<!--
+					after http://jira.jboss.org/jira/browse/JBSEAM-2346 will work for required
+
+					then erase : noSelectionLabel="#{(empty emptySelectLabel and not required) ? 'any..' : (required ? null : emptySelectLabel)}"
+					and use : noSelectionLabel="#{empty emptySelectLabel ? 'any..' : emptySelectLabel}"
+				-->
+			</p>
+		</div>
+		<ui:composition template="/WEB-INF/jfb/profile/primeFaces/widgets/viewEditSwitch.xhtml">
+			<ui:define name="edit">
+
+				<ui:fragment  rendered="#{type == 'enum'}">
+					<p:selectOneRadio  id="#{id}enum"
+									   required="#{empty required ? 'false' : required}"
+									   title="#{empty title ? label : title}"
+									   value="#{value}">
+
+
+						<f:selectItems value="#{collection}" var="item"
+									   itemValue="#{item}"
+									   itemLabel="#{item.label}" id="#{id}ItemEnum"
+									   noSelectionLabel="#{(empty emptySelectLabel and not hideEmpty) ? ' ' : (hideEmpty ? null : emptySelectLabel)}"
+									   />
+						<!-- <s:convertEnum /> -->
+
+					</p:selectOneRadio >
+				</ui:fragment>
+				<ui:fragment rendered="#{type == 'list'}">
+					<p:selectOneRadio  id="#{id}list"
+									   required="#{empty required ? 'false' : required}"
+									   title="#{empty title ? label : title}"
+									   value="#{value}">
+
+						<f:selectItems value="#{collection}" var="item"
+									   itemValue="#{item}"
+									   itemLabel="#{item.label}" id="#{id}ItemList"
+									   noSelectionLabel="#{(empty emptySelectLabel and not required) ? 'any..' : (required ? null : emptySelectLabel)}"
+									   />
+
+					</p:selectOneRadio >
+				</ui:fragment>
+			</ui:define>
+			<ui:define name="messages">
+				<div id="#{id}enumMessage" class="errorElement serverError">
+					<p:message for="#{id}enum" styleClass="error errors"/>
+				</div>
+				<div id="#{id}listMessage" class="errorElement serverError">
+					<p:message for="#{id}list" styleClass="error errors"/>
+				</div>
+			</ui:define>
+			<ui:define name="view">
+				<h:outputText value="#{value.label}" id="#{id}View"/>
+			</ui:define>
+		</ui:composition>
+	</body>
+</html>

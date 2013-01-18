@@ -1,0 +1,3 @@
+INSERT INTO userentity (version, firstname, lastname, email, password, phone, role) VALUES (0, 'Zdeněk', 'Dušátko', 'dusatze@fel.cvut.cz', MD5('mojeheslo'), '607793283', 'customer');
+INSERT INTO userentity (version, firstname, lastname, email, password, phone, role) VALUES (0, 'Zdeněk', 'Dušátko', 'root', MD5('root'), '607793283', 'customer');
+INSERT INTO userentity (version, firstname, lastname, email, password, phone, role) VALUES (0, 'Zdeněk', 'Dušátko', 'admin', MD5('admin'), '607793283', 'customer');

@@ -1,0 +1,10 @@
+<util:selectMenu label="#{text['$entityBean.shortClassName().firstToLower()$.$field$']}"
+				 edit="#{edit}"
+				 value="#{$entityBean.shortClassName()$.$field$}"
+				 required="$required$"
+				 itemCustomLabel="name"
+				 title="#{text['title.$entityBean.shortClassName().firstToLower()$.$field$']}"
+				 type="entity"
+				 id="#{prefix}$field$"
+				 rendered="#{empty render$field.firstToUpper()$ ? 'true' : render$field.firstToUpper()$}"
+				 collection="#{entities.$dataType.firstToLower()$}" />

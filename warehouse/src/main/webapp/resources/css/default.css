@@ -1,0 +1,76 @@
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  2em;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #000033;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.main-menu span{
+    font-family:"Lucida Grande", Lucida, Verdana, sans-serif;
+    display:block;
+    height:14px;
+    position:absolute;
+     /*top:17px;*/ 
+    right:90px; 
+    margin-top: 15px;
+    line-height:14px;
+    border:1px;
+    background-color:#000;
+    padding:3px 10px;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    color:#fcfcfc;
+    text-align:center;
+    text-shadow:#000 1px 1px 1px;
+    opacity:85;
+    filter:alpha(opacity =85); 
+    white-space: nowrap;
+}
+
+.main-menu span:hover{
+    text-decoration: underline;
+}
+
+.main-menu{
+    _position:absolute; /* IE Fixes */
+     position:fixed;
+     bottom:128px;
+     right: 0px;
+     width: 64px ;
+     padding-right: 20px;
+ }
+ 
+ .main-menu a{
+     margin-bottom: 30px;
+ }
+ 
+.main-menu > img{
+    position:relative;
+    cursor:pointer;
+    padding-top:35px;
+    z-index:2;
+}
+           

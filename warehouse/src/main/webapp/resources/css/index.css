@@ -1,0 +1,86 @@
+.plain-text-introducing{
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10pt;
+}
+
+.plain-text-introducing:first-letter{
+    font-size: 19pt;
+    color: black;
+}
+
+.main-menu-content{
+    width: 698px;
+}
+
+.new-menu{
+    width: 698px;
+}
+
+.type{
+    width: 305px !important;
+    margin-bottom: 5px;
+}
+
+.input-field{
+    width: 300px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+}
+
+.button{
+    width: 150px;
+    margin-right: 3px;
+    float: right;
+}
+
+.new-menu-title{
+    width: 698px;
+    margin-top: 30px;
+    height: 50px;
+    padding-top:20px;
+    padding-left: 75px;
+    background-image: url("#{resource['images:new.png']}");
+    background-repeat: no-repeat;
+}
+
+.concept-menu-title{
+    width: 698px;
+    margin-top: 30px;
+    height: 50px;
+    padding-top:20px;
+    padding-left: 75px;
+    background-image: url("#{resource['images:edit.png']}");
+    background-repeat: no-repeat;
+    clear: both;
+}
+
+.concept-menu{
+    width: 698px;
+}
+
+.form-wrapper{
+    width: 415px;
+    float: right;
+    /*border: 1px solid black;*/
+    margin-top: 30px;
+}
+
+#new-form-form\:infoMsgNew{
+    margin: 5px;
+    margin-right: 8px;
+    margin-left: 0px;
+}
+
+#open-form-form\:infoMsgOpen{
+    margin: 5px;
+    margin-right: 8px;
+    margin-left: 0px;
+}
+
+.label{
+    width: 100px !important;
+    display: block;
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://jformbuilder.com/jfb-configuration-1.1.0"
+		   xmlns:jfb="http://jformbuilder.com/jfb-configuration-1.1.0"
+		   elementFormDefault="qualified">
+
+	<xs:annotation>
+		<xs:appinfo>JFormBuilder 1.1.0 - jfb-configuration.xml schema</xs:appinfo>
+		<xs:documentation xml:lang="en">
+			Copyright (c) 2011, JFormBuilder (jformbuilder.com)
+
+			All rights reserved. This source code can be used only for purposes specified
+			by the given license contract signed by the rightful deputy of JFormBuilder.
+			This source code can be used only by the owner of the license.
+
+			Any disputes arising in respect of this agreement (license) shall be brought
+			before the Municipal Court of Prague.
+		</xs:documentation>
+		<xs:documentation xml:lang="en">
+			This schema defines configuration for specific mapping between types and tags.
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:complexType name="restriction" abstract="true">
+		<xs:attribute name="tag" type="xs:token" use="required"/>
+		<xs:attribute name="profiles" type="xs:NMTOKENS" />
+		<xs:attribute name="user-roles" type="xs:NMTOKENS" />
+	</xs:complexType>
+
+	<xs:complexType name="conditionType">
+		<xs:complexContent>
+			<xs:extension base="jfb:restriction">
+				<xs:attribute name="expression" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="varType">
+		<xs:complexContent>
+			<xs:extension base="jfb:restriction">
+				<xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="mappingType">
+		<xs:sequence>
+			<xs:element name="type" type="xs:NCName" maxOccurs="unbounded"/>
+			<xs:element name="default">
+				<xs:complexType>
+					<xs:attribute name="tag" type="xs:token" use="required"/>
+					<xs:anyAttribute processContents="skip"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="var" type="jfb:varType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="condition" type="jfb:conditionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ignoreFieldsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:NMTOKEN"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ignoringAnnotationsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:NCName"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="configurationType">
+		<xs:sequence>
+			<xs:element name="mapping" type="jfb:mappingType" maxOccurs="unbounded"/>
+			<xs:element name="ignore-fields" type="jfb:ignoreFieldsType" minOccurs="0"/>
+			<xs:element name="ignoring-annotations" type="jfb:ignoringAnnotationsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="configuration" type="jfb:configurationType"/>
+</xs:schema>

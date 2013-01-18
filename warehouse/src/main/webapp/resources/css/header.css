@@ -1,0 +1,58 @@
+/* 
+    Document   : head
+    Created on : Oct 16, 2012, 11:50:22 AM
+    Author     : Zdenek
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#logo{
+    background-image: url("#{resource['images:JFBlogo.png']}");
+    background-color: white;
+    background-size:183px 63px;
+    background-repeat: no-repeat;
+    width: 700px;
+    height: 63px;
+    padding-bottom: 1em;
+}
+
+.shadow{
+    width: 720px;
+    height: 55px;
+    margin: 0px auto;
+    background-image: url("#{resource['images:shadow.png']}");
+    background-repeat: repeat-x;
+    border-right: 1px solid #c1bfbf;
+    border-left : 1px solid #c1bfbf;
+}
+
+.jfb_ref_link{
+    display: block;
+    background-image: url("#{resource['images:JFBlogo.png']}");
+    background-size: 100% 100%;
+    width: 180px;
+    height: 50px;
+    margin-top: 15px;
+    background-repeat: no-repeat;
+    margin-left: 517px;
+}
+
+#top-header{
+    background-color: black;
+    height: 25px;
+    width: 100%;
+    color: white;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    padding-top: 5px;
+    clear:both;
+}
+.ctu-caption{
+    float: left;
+    margin-left: 10px;
+}
+
+.eform-caption{
+   float: right;
+   margin-right: 10px;
+}

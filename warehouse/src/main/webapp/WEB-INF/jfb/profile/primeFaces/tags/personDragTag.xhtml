@@ -1,0 +1,19 @@
+<h:panelGroup layout="block" id="space" rendered="#{edit}" styleClass="spacer" />
+
+<util:personDialog id="$field$"
+				   entityList="#{$entityBean.shortClassName().firstToLower()$Manager.personSimpleList}"
+				   manager="#{$entityBean.shortClassName().firstToLower()$Manager}"
+				   setValue="person"
+				   required="$required$"
+				   rendered="#{empty render$field.firstToUpper()$ ? 'true' : render$field.firstToUpper()$}"
+				   title="#{text['title.$entityBean.shortClassName().firstToLower()$.$field$']}"
+				   reRender="$field$Div,#{reRender}" />
+
+<util:dropBoxText id="$field$"
+				  label="#{text['$entityBean.shortClassName().firstToLower()$.$field$']}"
+				  displayValue="#{$entityBean.shortClassName().firstToLower()$Manager.person.personInfo.name}"
+				  typeDrop="Person"
+				  title="#{text['drop.$entityBean.shortClassName().firstToLower()$.$field$']}"
+				  manager="#{$entityBean.shortClassName().firstToLower()$Manager}"
+				  rendered="#{empty render$field.firstToUpper()$ ? 'true' : render$field.firstToUpper()$}"
+				  dropListener="dropPerson" />
