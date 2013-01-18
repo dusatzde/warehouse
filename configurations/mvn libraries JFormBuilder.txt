@@ -1,0 +1,10 @@
+JFormBuilder libraries.
+
+Install jars locally. 
+
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-1.1.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder -Dversion=1.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-a-javax-1.1.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder-a-javax -Dversion=1.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-a-validator42-1.1.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder-a-validator42 -Dversion=1.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-a-jpa-1.1.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder-a-jpa -Dversion=1.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-j2ee-1.1.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder-j2ee -Dversion=1.1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=D:\JFB\JFormBuilder\JFormBuilder\jformbuilder-ondemand2-1.0.0.jar -DgroupId=com.codingcrayons.jformbuilder -DartifactId=jformbuilder-ondemand2 -Dversion=1.0.0 -Dpackaging=jar

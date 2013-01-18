@@ -1,0 +1,104 @@
+********************************************************************************
+*     DB  schema
+********************************************************************************
+
+
+table userentity
+
+ID  // autogenerate
+email // username
+password // MD5 hash
+role
+
+SQL query:
+
+INSERT INTO userentity (version, firstname, lastname, email, password, phone, role) VALUES (0, 'Zdenek', 'Dušátko', 'dusatze@fel.cvut.cz', MD5('mojeheslo'), '607793283', 'customer');
+
+********************************************************************************
+*     Jboss AS7 statealone.xml configuration
+********************************************************************************
+
+    <security-management deep-copy-subject-mode="true"/>
+            <security-domains>
+                ...
+                ...
+                
+                <security-domain name="jaasProject" cache-type="default">
+                    <authentication>
+                        <login-module code="Database" flag="required">
+                            <module-option name="dsJndiName" value="java:jboss/MySqlDSJNDI"/>
+                            <module-option name="principalsQuery" value="select password from userentity where email=?"/>
+                            <module-option name="rolesQuery" value="select role, 'Roles' from userentity where email=?"/>
+                            <module-option name="hashAlgorithm" value="MD5"/>
+                            <module-option name="hashEncoding" value="hex"/>
+                            <module-option name="unauthenticatedIdentity" value="guest"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                
+            </security-domains>
+     </security-management>
+     
+     
+********************************************************************************
+*     Web.xml
+********************************************************************************
+
+<security-constraint>
+  <display-name>Private area</display-name>
+  <web-resource-collection>
+   <web-resource-name>private</web-resource-name>
+   <url-pattern>/public/intro/private.cc</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>customer</role-name>
+   <role-name>manager</role-name>
+   <role-name>storekeeper</role-name>
+  </auth-constraint>
+ </security-constraint>
+ 
+ <!-- Login Prompt -->
+ <login-config>
+  <auth-method>FORM</auth-method>
+  <form-login-config>
+   <form-login-page>/public/intro/login.cc</form-login-page>
+   <form-error-page>/public/intro/login.cc</form-error-page>
+  </form-login-config>
+ </login-config>
+ <!-- Roles -->
+ <security-role>
+  <description>Management</description>
+  <role-name>manager</role-name>
+ </security-role>
+ <security-role>
+  <description>Customers</description>
+  <role-name>customer</role-name>
+ </security-role>
+ <security-role>
+  <description>Storekeepers</description>
+  <role-name>storekeeper</role-name>
+ </security-role>
+ 
+********************************************************************************
+*     jboss-web.xml
+********************************************************************************
+
+<jboss-web>
+  ....
+  <security-domain>java:/jaas/jaasProject</security-domain>
+</jboss-web>
+
+
+
+********************************************************************************
+*     login.jsp   login form
+********************************************************************************
+
+
+   <form method="post" action="j_security_check">
+			<input type="text" name="j_username" />
+      <br /> 
+      <input type="password" name="j_password" />
+      <br /> 
+      <input type="submit" value="Login" />
+	</form>

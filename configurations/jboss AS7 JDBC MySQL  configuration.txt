@@ -1,0 +1,41 @@
+1) Instal MySQL server (username=root, password=root)
+2) Create database warehouse
+3) Database url:  jdbc:mysql://localhost:3306/warehouse
+
+JDBC MySQL settings
+
+1) Download MySQL Connector/J
+   http://www.mysql.com/downloads/connector/j/
+   
+2) Extract mysql-connector-java-5.1.22-bin.jar
+
+3) Start statealone JBoss AS7.1
+4) Open web admin console. http://localhost:9990/console
+5) Deploy MySQL jdbc driver. In runtime card select Deployments > Manage Deployments > Add Content. 
+   Select mysql-connector-java-5.1.22-bin.jar > next > save.
+   
+6) Enable mysql-connector-java-5.1.22-bin.jar in Manage Deployments card.
+
+----------------
+Create datasouce:
+
+1) Open web admin console. http://localhost:9990/console
+2) Select Profile card.
+3) Connectors > Datasources > Add  
+4) Insert values:
+
+    name:        MySqlDS
+    JNDI Name:   java:jboss/MySqlDSJNDI
+    
+5) Click Next > select MySqlJDBCDriver > click next
+6) Insert values:
+
+    Database url: jdbc:mysql://localhost:3306/warehouse
+    username:     root
+    password:     root
+    
+7) Click Save and enable newly created datasource.
+   if everything is configured properly you would see it green as shown in below snap-shot.
+   
+   INFO&nbsp; [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) JBAS010400: Bound data source [java:/MySqlDS]
+
