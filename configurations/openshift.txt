@@ -1,0 +1,9 @@
+
+**************************************************************
+* OPENSHIFT LOGIN
+**************************************************************
+
+url:      https://openshift.redhat.com/app/login?redirectUrl=%2Fapp%2Fconsole
+username: svecpav2@fel.cvut.cz
+password: warehouse
+
