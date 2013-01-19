@@ -1,0 +1,28 @@
+#form-content{
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+
+#login-form{
+	border-right: 1px solid black;
+	width: 310px;
+	float: left;
+	margin: 10px;
+}
+
+#registration-form{
+	width: 240px;
+	float: left;
+	margin: 10px;
+}
+
+.button{
+	float: right;
+	margin: 5px;
+	margin-right: 10px;
+}
+
+.form-text-field{
+	margin: 5px;
+}

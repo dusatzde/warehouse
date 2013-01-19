@@ -106,7 +106,7 @@
   <auth-method>FORM</auth-method>
   <form-login-config>
    <form-login-page>/public/intro/login.cc</form-login-page>
-   <form-error-page>/public/intro/login.cc</form-error-page>
+   <form-error-page>/public/intro/login.cc?successful=no</form-error-page>
   </form-login-config>
  </login-config>
  <!-- Roles -->
