@@ -6,24 +6,30 @@
         Purpose of the stylesheet follows.
 */
 
-#logo{
-    background-image: url("#{resource['images:JFBlogo.png']}");
+#jfb-logo{
+    background-image: url("#{resource['images:logo.png']}");
     background-color: white;
-    background-size:183px 63px;
+    background-size:285px 125px;
+	background-position: 10px 0px;
     background-repeat: no-repeat;
-    width: 700px;
-    height: 63px;
-    padding-bottom: 1em;
+    width: 800px;
+    height: 125px;
+}
+
+#logo{
+	display: block;
+	width: 300px;
+	height: 125px;
+	float: left;
 }
 
 .shadow{
-    width: 720px;
+    width: 800px;
     height: 55px;
     margin: 0px auto;
+    margin-bottom: 0px;
     background-image: url("#{resource['images:shadow.png']}");
     background-repeat: repeat-x;
-    border-right: 1px solid #c1bfbf;
-    border-left : 1px solid #c1bfbf;
 }
 
 .jfb_ref_link{
@@ -32,9 +38,10 @@
     background-size: 100% 100%;
     width: 180px;
     height: 50px;
-    margin-top: 15px;
     background-repeat: no-repeat;
-    margin-left: 517px;
+    margin-left: 600px;
+    border: none;
+    text-decoration: none;
 }
 
 #top-header{
@@ -51,8 +58,11 @@
     float: left;
     margin-left: 10px;
 }
-
-.eform-caption{
+#login-bar{
    float: right;
    margin-right: 10px;
 }
+
+#login-bar a{
+	font-size: 1.2em;
+} 

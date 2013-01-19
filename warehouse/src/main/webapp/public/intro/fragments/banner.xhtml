@@ -8,7 +8,16 @@
 
 	 <div id="top-header">
             <h:outputText value="CTU FEE" class="ctu-caption"/>
-            <h:outputText value="eForm" class="eform-caption"/>  
-        </div>
+            <div id="login-bar">
+            	 <h:form>
+                            <h:outputText value="username" rendered="false"/> 
+                            <h:outputText value="Welcome" rendered="true"/> 
+                            
+                            <h:outputText value=" | "  />
+                            <p:commandLink  value="Log Out" rendered="false" ajax="false" /> 
+                            <h:outputLink value="#" rendered="true" >Log In </h:outputLink>
+                        </h:form>
+            </div> 
+      </div>
     
 </ui:composition>

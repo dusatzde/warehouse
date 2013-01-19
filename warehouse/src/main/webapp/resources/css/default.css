@@ -15,14 +15,18 @@ h1 {
     color: #000033;
 }
 
+a{
+	font-size: 1.8em;
+}
+
 a:link, a:visited {
-  color: #045491;
+  color: white;
   font-weight : bold;
   text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
+  color: white;
   font-weight : bold;
   text-decoration : underline;
 }

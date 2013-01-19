@@ -1,0 +1,47 @@
+#menu{
+	width: 800px;
+	height: 62px;
+    background-color: red;
+}
+
+.menu-item{
+	display: block;
+	border: 8px solid red;
+	border-right: 1px solid white;
+	width: 145px;
+	height: 47px;	
+	float: left;
+	color: white;
+}
+
+ .menu-item a:link, a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+ .menu-item a:link:hover{
+  color: white;
+  font-weight : bold;
+  text-decoration: underline;
+}
+
+#shopping-cart{
+	background-image: url("#{resource['images:shopping-cart.png']}");
+	background-size:157px 60px;
+	background-repeat: no-repeat;
+	background-position: 20px 5px;
+	width: 325px;
+	height: 37px;
+	padding: 5px;
+	float: left;
+	padding-top: 15px;
+}
+
+#shopping-cart #content{
+	color: white;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-left: 200px;
+	
+}
