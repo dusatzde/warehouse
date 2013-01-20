@@ -6,18 +6,19 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-	 <div id="top-header">
-            <h:outputText value="CTU FEE" class="ctu-caption"/>
-            <div id="login-bar">
-            	 <h:form>
-                            <h:outputText value="username" rendered="false"/> 
-                            <h:outputText value="Welcome" rendered="true"/> 
-                            
-                            <h:outputText value=" | "  />
-                            <p:commandLink  value="Log Out" rendered="false" ajax="false" /> 
-                            <h:outputLink value="/warehouse/public/intro/private.cc" rendered="true" >Log In </h:outputLink>
-                        </h:form>
-            </div> 
-      </div>
-    
+	<div id="top-header">
+		<h:outputText value="CTU FEE" class="ctu-caption" />
+		<div id="login-bar">
+			<h:form>
+				<h:outputText value="#{user.username}" rendered="#{user.logged}" />
+				<h:outputText value="Welcome" rendered="#{not user.logged}" />
+
+				<h:outputText value=" | " />
+				<p:commandLink value="Log Out" action="#{logout.logout()}" rendered="#{user.logged}"
+					ajax="false" />
+				<h:link value="Log In" outcome="private" rendered="#{not user.logged}" />
+			</h:form>
+		</div>
+	</div>
+
 </ui:composition>
