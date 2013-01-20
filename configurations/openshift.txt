@@ -1,0 +1,43 @@
+
+**************************************************************
+* OPENSHIFT LOGIN
+**************************************************************
+
+url:      https://openshift.redhat.com/app/login?redirectUrl=%2Fapp%2Fconsole
+username: svecpav2@fel.cvut.cz
+password: warehouse
+
+GIT: ssh://96f84d7c3a264449801e4b8b6befb0ed@warehouse-javalab.rhcloud.com/~/git/warehouse.git/
+SSH: ssh 96f84d7c3a264449801e4b8b6befb0ed@warehouse-javalab.rhcloud.com
+
+For SSH connection is mandatory to register public key:
+1) login
+2) tab "my account"
+3) add new key
+4) copy&paste the key
+
+OR
+
+using RHC console client, instructions on https://openshift.redhat.com/community/get-started
+(middle block "COMMAND LINE")
+
+I recommend to clone GIT repository of the sample app, to check correct directory structure.
+Refer to README.
+
+**************************************************************
+* MySQL DATABASE SETTINGS
+**************************************************************
+
+Root User: admin
+Root Password: JUTk8F1mmiVV
+Database Name: warehouse
+
+Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+phpMyAdmin URL: https://warehouse-javalab.rhcloud.com/phpmyadmin/
+
+**************************************************************
+* DEPLOY WEBAPP ON JBOSS AS7
+**************************************************************
+
+video: http://www.youtube.com/watch?v=JXjz9RfrKRE
+
