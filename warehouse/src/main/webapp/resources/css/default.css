@@ -86,7 +86,7 @@ a:link:hover, a:visited:hover  {
 div.prop {
 	border-bottom: 1px solid transparent;
 	*border-bottom: 1px solid white;
-        margin-top: 5px;
+    margin-top: 5px;
 	float: left;
 	/**float: none;*/
 	/*Chrome*/
@@ -196,6 +196,11 @@ div.tooltipWrap {
 pre {
 	background: white;
 	padding: .2em .5em;
+}
+
+.message{
+	font-size: 1.4em !important;
+	font-weight: bold;
 }
 
            

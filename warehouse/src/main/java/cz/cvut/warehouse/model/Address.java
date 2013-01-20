@@ -17,8 +17,8 @@ public class Address extends EntityObject{
 	private String city;
 	private String street;
 	private String buildingNumber;
-	private String ZIPCode;
-	private String Country;
+	private String zipCode;
+	private String country;
 	
 	private UserEntity user;
 	
@@ -59,22 +59,22 @@ public class Address extends EntityObject{
 	@Column(name = "zip")
 	@NotNull
 	@UiOrder(4)
-	public String getZIPCode() {
-		return ZIPCode;
+	public String getZipCode() {
+		return zipCode;
 	}
 	
-	public void setZIPCode(String zIPCode) {
-		ZIPCode = zIPCode;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 	
 	@Column(name = "country")
 	@UiOrder(5)
 	public String getCountry() {
-		return Country;
+		return country;
 	}
 	
 	public void setCountry(String country) {
-		Country = country;
+		this.country = country;
 	}
 
 	@OneToOne(mappedBy = "address")

@@ -37,16 +37,26 @@
 
 			</div>
 			<div id="registration-form">
-				<h1>or Register.</h1>
-				<br />
-				<h:form>
+				<h:form >
+					<h1>or Register.</h1>
+					<span class="message">
+						<p:message for="registration-button" />
+					</span>
+					
+					<br />
+				
 					<util:ui instance="#{registration.userEntity}" prefix="us1" edit="true" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.UserEntity" />
 					<br />
 					<h3>Address</h3>
 					<br />
 					<util:ui instance="#{registration.userEntity.address}" prefix="ad1" edit="true" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Address" />
 							 
-					<p:commandButton styleClass="register-button" value="Register" />
+					<p:commandButton 	id="registration-button"
+										action="#{registration.registerCustomer()}" 
+										styleClass="register-button"
+										value="Register"  
+										ajax="false"
+										binding="#{registration.registerButton}" />
 				</h:form>
 			</div>
 		</div>

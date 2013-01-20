@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 import com.codingcrayons.jformbuilder.annotations.UiOrder;
+import com.codingcrayons.jformbuilder.annotations.UiPassword;
 
 @Entity
 @Table(name = "userentity")
@@ -23,7 +24,7 @@ public class UserEntity extends EntityObject{
 	private String phone;
 	private String role;
 	
-	private Address address;
+	private Address address = new Address();
 	
 	
 	@Column(name = "firstname")
@@ -63,6 +64,7 @@ public class UserEntity extends EntityObject{
 	@Column(name = "password")
 	@UiOrder(4)
 	@NotNull
+	@UiPassword
 	public String getPassword() {
 		return password;
 	}
