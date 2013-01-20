@@ -4,6 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://codingcrayons.com/jformbuilder"
 	xmlns:p="http://primefaces.org/ui" template="./templates/layout.xhtml">
 
 	<ui:param name="title" value="Log In or Register" />
@@ -21,24 +22,33 @@
 				<h:form id="login" prependId="false"
 					onsubmit="document.#{p:component('login')}.action='j_security_check';">
 					<h:outputLabel value="Email:" for="j_username" styleClass="name" />
-					<p:inputText id="j_username" styleClass="form-text-field"/>
+					<p:inputText id="j_username" styleClass="form-text-field" />
 					<br />
-					<h:outputLabel value="Password:" for="j_password" styleClass="name"/>
+					<h:outputLabel value="Password:" for="j_password" styleClass="name" />
 					<p:password id="j_password" styleClass="form-text-field" />
 					<br />
-					<p:commandButton ajax="false" type="submit" value="Log In" styleClass="button" />
+					<p:commandButton styleClass="login-button" ajax="false" type="submit" value="Log In" />
 				</h:form>
-				<br />
-				<br />
-				<br />
-				<h3 style="color:red"><h:outputText value="Incorect username or password." rendered="#{param['successful'] eq 'no' }" /></h3>
-				
+				<br /> <br /> <br />
+				<h3 style="color: red">
+					<h:outputText value="Incorect username or password."
+						rendered="#{param['successful'] eq 'no' }" />
+				</h3>
+
 			</div>
 			<div id="registration-form">
 				<h1>or Register.</h1>
 				<br />
+				<h:form>
+					<util:ui instance="#{registration.userEntity}" prefix="us1" edit="true" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.UserEntity" />
+					<br />
+					<h3>Address</h3>
+					<br />
+					<util:ui instance="#{registration.userEntity.address}" prefix="ad1" edit="true" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Address" />
+							 
+					<p:commandButton styleClass="register-button" value="Register" />
+				</h:form>
 			</div>
 		</div>
-
 	</ui:define>
 </ui:composition>

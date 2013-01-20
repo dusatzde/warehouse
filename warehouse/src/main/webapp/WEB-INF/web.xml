@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
  <!-- JFormBuilder -->
  <context-param>
   <description>
@@ -23,7 +24,7 @@
 			Metamodel cache (false/true)
 		</description>
   <param-name>JFB.DEVELOPMENT</param-name>
-  <param-value>false</param-value>
+  <param-value>true</param-value>
  </context-param>
  <context-param>
   <param-name>com.ocpsoft.pretty.DEVELOPMENT</param-name>
@@ -88,6 +89,7 @@
  <welcome-file-list>
   <welcome-file>/public/intro/index.cc</welcome-file>
  </welcome-file-list>
+ 
  <security-constraint>
   <display-name>Private area</display-name>
   <web-resource-collection>
@@ -100,6 +102,14 @@
    <role-name>storekeeper</role-name>
   </auth-constraint>
  </security-constraint>
+  <security-constraint>
+        <display-name>Restrict raw XHTML Documents</display-name>
+        <web-resource-collection>
+            <web-resource-name>XHTML</web-resource-name>
+            <url-pattern>*.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint/>
+    </security-constraint>
  
  <!-- Login Prompt -->
  <login-config>

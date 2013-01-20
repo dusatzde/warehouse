@@ -5,7 +5,7 @@
 			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
-	<application>
+<application>
 		<locale-config>
 			<default-locale>en</default-locale>
 			<supported-locale>en</supported-locale>
@@ -15,5 +15,6 @@
 			<var>text</var>
 		</resource-bundle>
 		<message-bundle>bundle.validation</message-bundle>
-	</application>
+</application>
+	
 </faces-config>

@@ -30,7 +30,6 @@ public class AdaptiveJFBGeneratorHandler extends DefaultJFBGeneratorHandler {
 
 	public AdaptiveJFBGeneratorHandler(ComponentConfig config) {
 		super(config, JFB_CACHE);
-
 		FacesContext ctx = FacesContext.getCurrentInstance();
 		Integer jfbCache = Integer.parseInt(ctx.getExternalContext().getInitParameter("JFB.CACHE"));
 		if (jfbCache == null) {

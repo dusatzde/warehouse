@@ -1,7 +1,7 @@
 <util:inputText label="#{text['$entityBean.shortClassName().firstToLower()$.$field$']}"
 				edit="#{empty edit$field.firstToUpper()$ ? edit : edit$field.firstToUpper()$}"
 				value="#{$entityBean.shortClassName()$.$field$}"
-				required="#{empty required$field.firstToUpper()$ ? $required$ : required$field.firstToUpper()$}"
+				required="$required$"
 				size="$size$"
 				title="#{text['title.$entityBean.shortClassName().firstToLower()$.$field$']}"
 				pattern="'$pattern$'"

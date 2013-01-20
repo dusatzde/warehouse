@@ -1,8 +1,14 @@
 package cz.cvut.warehouse.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+
+import com.codingcrayons.jformbuilder.annotations.UiOrder;
 
 @Entity
 @Table(name = "userentity")
@@ -17,7 +23,12 @@ public class UserEntity extends EntityObject{
 	private String phone;
 	private String role;
 	
+	private Address address;
+	
+	
 	@Column(name = "firstname")
+	@UiOrder(2)
+	@NotNull
 	public String getFirstname() {
 		return firstname;
 	}
@@ -27,6 +38,8 @@ public class UserEntity extends EntityObject{
 	}
 	
 	@Column(name = "lastname")
+	@UiOrder(3)
+	@NotNull
 	public String getLastname() {
 		return lastname;
 	}
@@ -36,6 +49,8 @@ public class UserEntity extends EntityObject{
 	}
 	
 	@Column(name = "email")
+	@UiOrder(1)
+	@NotNull
 	public String getEmail() {
 		return email;
 	}
@@ -46,6 +61,8 @@ public class UserEntity extends EntityObject{
 	
 	
 	@Column(name = "password")
+	@UiOrder(4)
+	@NotNull
 	public String getPassword() {
 		return password;
 	}
@@ -55,6 +72,7 @@ public class UserEntity extends EntityObject{
 	}
 
 	@Column(name = "phone")
+	@UiOrder(5)
 	public String getPhone() {
 		return phone;
 	}
@@ -64,12 +82,22 @@ public class UserEntity extends EntityObject{
 	}
 	
 	@Column(name = "role")
+	@NotNull
 	public String getRole() {
 		return role;
 	}
 	
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 	
