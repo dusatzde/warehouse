@@ -6,7 +6,7 @@
 		<h:outputLabel value="#{label}" class="name #{noBreak?'noBreak':''}">
 			<h:outputText value="#{empty labelSuffix ? ':' : labelSuffix}"
 						  rendered="#{empty showLabelSuffix ? true : showLabelSuffix}" />
-			<ui:fragment rendered="#{required or forceRequired}">
+			<ui:fragment rendered="false">
 				<span class="required">*</span>
 			</ui:fragment>
 		</h:outputLabel>

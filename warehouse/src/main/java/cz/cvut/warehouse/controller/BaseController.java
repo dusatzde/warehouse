@@ -3,6 +3,7 @@ package cz.cvut.warehouse.controller;
 import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import org.jboss.seam.international.status.builder.BundleKey;
 
@@ -29,6 +30,12 @@ abstract public class BaseController implements Serializable{
 		FacesContext.getCurrentInstance().addMessage(id, message);
 		return message;
 	}
+	
+	protected void initInfoMessage(UIComponent component, String msg, String description) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, description);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(component.getClientId(context), message);
+    }
 
 	protected String getBundleText(String key) {
 		return key == null ? null : new BundleKey(BUNDLE, key).toString();

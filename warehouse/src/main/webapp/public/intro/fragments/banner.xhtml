@@ -9,14 +9,19 @@
 	<div id="top-header">
 		<h:outputText value="CTU FEE" class="ctu-caption" />
 		<div id="login-bar">
-			<h:form>
+			<h:link value="Orders" render="true" outcome="/public/intro/staff/orders" />
+			<h:outputText value=" | " />
+			<h:link value="Staff" render="true" outcome="/public/intro/manager/staff" />
+		
+			
+			<h:form  style="float: right">
 				<h:outputText value="#{user.username}" rendered="#{user.logged}" />
 				<h:outputText value="Welcome" rendered="#{not user.logged}" />
 
 				<h:outputText value=" | " />
 				<p:commandLink value="Log Out" action="#{logout.logout()}" rendered="#{user.logged}"
 					ajax="false" />
-				<h:link value="Log In" outcome="private" rendered="#{not user.logged}" />
+				<h:link value="Log In" outcome="/public/intro/private" rendered="#{not user.logged}" />
 			</h:form>
 		</div>
 	</div>

@@ -1,9 +1,7 @@
 package cz.cvut.warehouse.controller;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,20 +22,20 @@ public class Registration extends BaseController{
 	private UIComponent registerButton;
 	
 	
-	public String registerCustomer(){
+	public void registerCustomer(){
 		userEntity.setRole(RoleType.CUSTOMER);
 		userManager.create(userEntity);
-		initInfoMessage(registerButton, "OK", "Registration was successful. Please login.");
+		initInfoMessage(registerButton, "OK", "Your account has been register successfully. Please login.");
 		userEntity = new UserEntity();
-		return redirect("");
 	}
 	
-	protected void initInfoMessage(UIComponent component, String msg, String description) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, description);
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(component.getClientId(context), message);
-    }
-
+	public void registerEmployee(){
+		userEntity.setRole(RoleType.STOREKEEPER);
+		userManager.create(userEntity);
+		initInfoMessage(registerButton, "OK", "An account has been register successfully. Please login.");
+		userEntity = new UserEntity();
+	}
+	
 
 	public UserEntity getUserEntity() {
 		return userEntity;

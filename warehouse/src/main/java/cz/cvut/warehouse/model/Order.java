@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.codingcrayons.jformbuilder.annotations.UiIgnore;
@@ -44,6 +45,7 @@ public class Order extends EntityObject{
 	@Column(name="price")
 	@NotNull
 	@UiOrder(3)
+	@Min(0)
 	public double getTotalPrice() {
 		return totalPrice;
 	}

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +19,7 @@ import com.codingcrayons.jformbuilder.annotations.UiPassword;
 
 @Entity
 @Table(name = "userentity")
+@NamedQueries({@NamedQuery(name="UserEntity.findByRole", query="SELECT u FROM UserEntity u WHERE u.role = :role") })
 public class UserEntity extends EntityObject{
 
 	private static final long serialVersionUID = 5241886855226308491L;

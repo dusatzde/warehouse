@@ -33,6 +33,8 @@
 		<type>byte</type>
 		<type>Float</type>
 		<type>float</type>
+		<type>Double</type>
+		<type>double</type>
 		<type>Long</type>
 		<type>long</type>
 		<type>Short</type>

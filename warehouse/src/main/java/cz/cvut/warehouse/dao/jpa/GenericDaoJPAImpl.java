@@ -1,9 +1,12 @@
-package cz.cvut.warehouse.dao;
+package cz.cvut.warehouse.dao.jpa;
 
 import java.io.Serializable;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+
+import cz.cvut.warehouse.dao.GenericDao;
+import cz.cvut.warehouse.dao.GenericsUtils;
 
 public abstract class GenericDaoJPAImpl <T, PK extends Serializable> implements GenericDao<T, PK>{
 

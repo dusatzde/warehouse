@@ -1,0 +1,35 @@
+.product-add-form{
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-top: 1px solid #cccccc;
+	padding-bottom: 10px;
+}
+
+.form-item{
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+.button{
+	float: right;
+	margin-right: 120px;
+}
+
+.product-list .value{
+	font-size: 1.4em !important;
+}
+
+.image{
+	
+	background-image: url("#{resource['images:shopping-bag.png']}");
+	background-color: white !important;
+	background-size:44px 64px;
+	background-repeat: no-repeat;
+	background-position: 10px 10px;
+	margin: 10px;
+	border: 1px solid black;
+	width: 85px;
+	height: 85px;
+	float: left;
+}

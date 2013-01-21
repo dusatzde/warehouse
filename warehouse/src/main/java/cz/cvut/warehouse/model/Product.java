@@ -9,13 +9,19 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.codingcrayons.jformbuilder.annotations.UiOrder;
 
 @Entity
 @Table(name = "product")
+@NamedQueries({@NamedQuery(name="Product.findByCategory", query="SELECT p FROM Product p  WHERE p.category.name = :name") })
 public class Product extends EntityObject{
 
 	private static final long serialVersionUID = -2209693898441797165L;
@@ -41,6 +47,7 @@ public class Product extends EntityObject{
 	
 	@Column(name="description")
 	@UiOrder(4)
+	@Length(max=1000)
 	public String getDescription() {
 		return description;
 	}
@@ -52,6 +59,7 @@ public class Product extends EntityObject{
 	@Column(name="price")
 	@NotNull
 	@UiOrder(2)
+	@Min(0)
 	public Double getPrice() {
 		return price;
 	}
@@ -63,6 +71,7 @@ public class Product extends EntityObject{
 	@Column(name="count")
 	@NotNull
 	@UiOrder(3)
+	@Min(0)
 	public int getCount() {
 		return count;
 	}
