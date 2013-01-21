@@ -1,8 +1,12 @@
 package cz.cvut.warehouse.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -25,6 +29,7 @@ public class UserEntity extends EntityObject{
 	private String role;
 	
 	private Address address = new Address();
+	private List<Order> orders= new ArrayList<>();
 	
 	
 	@Column(name = "firstname")
@@ -100,6 +105,15 @@ public class UserEntity extends EntityObject{
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	@OneToMany(mappedBy="user")
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 	
