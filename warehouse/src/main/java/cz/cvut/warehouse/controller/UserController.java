@@ -1,15 +1,17 @@
 package cz.cvut.warehouse.controller;
 
-import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import cz.cvut.warehouse.controller.qualifiers.LoggedUser;
 import cz.cvut.warehouse.controller.qualifiers.NewOrder;
+import cz.cvut.warehouse.dao.AddressDao;
 import cz.cvut.warehouse.dao.OrderDao;
 import cz.cvut.warehouse.dao.UserDao;
+import cz.cvut.warehouse.model.Address;
 import cz.cvut.warehouse.model.Order;
 import cz.cvut.warehouse.model.UserEntity;
 import cz.cvut.warehouse.util.OrderStateType;
@@ -22,14 +24,23 @@ public class UserController extends BaseController {
 	
 	private String  username;
 	private String  role = "";
+	private boolean cleared;
+	
+	@Produces
+	@LoggedUser
 	private UserEntity user;
 	
 	@Inject
 	private OrderDao orderManager;
 	
+	@Inject
+	private AddressDao addressManager;
+	
 	@Produces 
 	@NewOrder
 	private Order order;
+	
+	private Address address;
 	
 	
 	@PostConstruct
@@ -57,6 +68,7 @@ public class UserController extends BaseController {
 		
 		if(user != null){
 			username = user.getEmail();
+			address = addressManager.getAddress(user.getId());
 			return username;
 		}
 		
@@ -123,6 +135,23 @@ public class UserController extends BaseController {
 
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public boolean isCleared() {
+		order = new Order();  //clear shopping cart hack
+		return cleared;
+	}
+
+	public void setCleared(boolean cleared) {
+		this.cleared = cleared;
 	}
 	
 	

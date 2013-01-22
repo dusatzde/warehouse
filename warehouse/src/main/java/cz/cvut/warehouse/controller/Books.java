@@ -7,7 +7,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import cz.cvut.warehouse.controller.qualifiers.NewOrder;
-import cz.cvut.warehouse.dao.OrderDao;
 import cz.cvut.warehouse.dao.ProductDao;
 import cz.cvut.warehouse.model.Order;
 import cz.cvut.warehouse.model.Product;

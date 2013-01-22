@@ -2,6 +2,8 @@ package cz.cvut.warehouse.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import com.codingcrayons.jformbuilder.annotations.UiOrder;
 
 @Entity
 @Table(name = "address")
+@NamedQueries({@NamedQuery(name="Address.findByUser", query="SELECT a FROM Address a WHERE a.user.id = :user")})
 public class Address extends EntityObject{
 
 	private static final long serialVersionUID = -2412481475801479420L;

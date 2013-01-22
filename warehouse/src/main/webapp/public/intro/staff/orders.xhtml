@@ -5,14 +5,38 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:util="http://codingcrayons.com/jformbuilder"
-	xmlns:p="http://primefaces.org/ui" template="./../templates/layout.xhtml">
+	xmlns:p="http://primefaces.org/ui"
+	template="./../templates/layout.xhtml">
 
 	<ui:param name="title" value="Orders" />
 
-	<ui:define name="menu"></ui:define>
-
 	<ui:define name="content">
-		<h:outputStylesheet name="css/login.css" />
-		<h1>Orders</h1>
+		<h:outputStylesheet name="css/orders.css" />
+		<h:outputStylesheet name="css/menu.css" />
+
+		<p:tabView>
+			<p:tab title="New Orders">
+			<h:form>
+				<p:dataGrid var="_order" value="#{order.newOrders}" rows="2" columns="1">
+					<div class="form-item">
+						<util:ui instance="#{_order}" prefix="or1" edit="false" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Order" />
+						<p:commandButton id="confirm-button" action="#{order.confirm(_order)}" value="Confirm" ajax="false" style="float: right; margin: 5px" />
+						<br />
+						<div style="clear: both" />
+						<hr />
+					</div>
+				</p:dataGrid>
+				</h:form>
+			</p:tab>
+			
+			<p:tab title="History">
+				<p:dataGrid var="_order" value="#{order.orders}" rows="2" columns="1">
+					<div class="form-item">
+						<util:ui instance="#{_order}" prefix="or2" edit="false" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Order" />
+						<br />
+					</div>
+				</p:dataGrid>
+			</p:tab>
+		</p:tabView>
 	</ui:define>
 </ui:composition>

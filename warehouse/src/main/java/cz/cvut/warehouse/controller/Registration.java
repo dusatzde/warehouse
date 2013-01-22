@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import cz.cvut.warehouse.dao.UserDao;
 import cz.cvut.warehouse.model.UserEntity;
+import cz.cvut.warehouse.util.DigestUtils;
 import cz.cvut.warehouse.util.RoleType;
 
 @Named("registration")
@@ -24,6 +25,7 @@ public class Registration extends BaseController{
 	
 	public void registerCustomer(){
 		userEntity.setRole(RoleType.CUSTOMER);
+		encryptPassword();
 		userManager.create(userEntity);
 		initInfoMessage(registerButton, "OK", "Your account has been registered successfully. Please login.");
 		userEntity = new UserEntity();
@@ -31,9 +33,16 @@ public class Registration extends BaseController{
 	
 	public void registerEmployee(){
 		userEntity.setRole(RoleType.STOREKEEPER);
+		encryptPassword();
 		userManager.create(userEntity);
 		initInfoMessage(registerButton, "OK", "An account has been registerer successfully.");
 		userEntity = new UserEntity();
+	}
+	
+	private void encryptPassword(){
+		String password = userEntity.getPassword();
+		password = DigestUtils.getHash(password);
+		userEntity.setPassword(password);
 	}
 	
 

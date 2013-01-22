@@ -10,13 +10,12 @@
 
 	<ui:param name="title" value="Staff" />
 
-	<ui:define name="menu"></ui:define>
-
 	<ui:define name="content">
 		<h:outputStylesheet name="css/login.css" />
 		<h:outputStylesheet name="css/staff.css" />
+		<h:outputStylesheet name="css/menu.css" />
 		<p:dataGrid styleClass="staff-list" var="_employee"
-			value="#{employee.staff}" columns="1" rows="10" paginator="true"
+			value="#{employee.staff}" columns="1" rows="2" paginator="true"
 			paginatorTemplate=" {PageLinks}">
 			<div class="form-item">
 				<util:ui instance="#{_employee}" prefix="em1" edit="false"

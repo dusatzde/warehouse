@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,6 +21,8 @@ import com.codingcrayons.jformbuilder.annotations.UiOrder;
 
 @Entity
 @Table(name = "orderentity")
+@NamedQueries({@NamedQuery(name="Order.findByState", query="SELECT o FROM Order o WHERE o.state = :state")})
+
 public class Order extends EntityObject{
 
 	private static final long serialVersionUID = 2478854019818433144L;
