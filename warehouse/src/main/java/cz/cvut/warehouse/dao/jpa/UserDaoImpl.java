@@ -17,5 +17,13 @@ public class UserDaoImpl extends GenericDaoJPAImpl<UserEntity, Serializable> imp
 		return result;
 	}
 
+	@Override 
+	public UserEntity getUser(String username) {
+		UserEntity result=  em.createNamedQuery("UserEntity.findByUsername", UserEntity.class)
+				.setParameter("username", username)
+				.getSingleResult();
+		return result;
+	}
+
 
 }

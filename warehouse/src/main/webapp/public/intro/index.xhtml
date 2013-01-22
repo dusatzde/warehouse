@@ -15,15 +15,15 @@
            <span class="selected-menu-item" >Books</span>
            <a href="/warehouse/public/intro/index.cc?cat=music" class="menu-item" >Music</a>
            <a href="/warehouse/public/intro/index.cc?cat=movies" class="menu-item" >Movies</a>
-           <div id="shopping-cart">
+           <h:link id="shopping-cart" outcome="/public/intro/cart">
            		<div id="content">
-           			<h:outputText value="0 " />
-           			<h:outputText value="Items" />
+           			<h:outputText value="#{user.order.products.size()} " />
+           			<h:outputText value=" Items" />
            			<br />
-           			<h:outputText value="0 " />
-           			<h:outputText value="$" />
+           			<h:outputText value="#{user.order.totalPrice} " />
+           			<h:outputText value=" $" />
            		</div>
-           </div>
+           </h:link>
            <div class="cleaner" />
        </div>
 	</ui:define>
@@ -51,7 +51,7 @@
    			<div class="image" />
    			<div class="form-item">
    				<util:ui instance="#{_product}" prefix="pr2" edit="false" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Product" />
-   				<p:commandButton value="Buy" ajax="false" styleClass="button"/>
+   				<p:commandButton action="#{books.buy(_product)}" value="Buy" ajax="false" styleClass="button"/>
    				<div class="cleaner" />
    			</div>
    			

@@ -25,14 +25,14 @@ public class Registration extends BaseController{
 	public void registerCustomer(){
 		userEntity.setRole(RoleType.CUSTOMER);
 		userManager.create(userEntity);
-		initInfoMessage(registerButton, "OK", "Your account has been register successfully. Please login.");
+		initInfoMessage(registerButton, "OK", "Your account has been registered successfully. Please login.");
 		userEntity = new UserEntity();
 	}
 	
 	public void registerEmployee(){
 		userEntity.setRole(RoleType.STOREKEEPER);
 		userManager.create(userEntity);
-		initInfoMessage(registerButton, "OK", "An account has been register successfully. Please login.");
+		initInfoMessage(registerButton, "OK", "An account has been registerer successfully.");
 		userEntity = new UserEntity();
 	}
 	

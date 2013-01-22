@@ -1,4 +1,4 @@
-package cz.cvut.warehouse.controller;
+package cz.cvut.warehouse.util;
 
 public class CategoryType {
 

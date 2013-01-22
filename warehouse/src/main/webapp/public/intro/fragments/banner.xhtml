@@ -15,13 +15,13 @@
 		
 			
 			<h:form  style="float: right">
-				<h:outputText value="#{user.username}" rendered="#{user.logged}" />
-				<h:outputText value="Welcome" rendered="#{not user.logged}" />
+				<h:outputText value="#{user.username}" rendered="#{user.role ne '' }" />
+				<h:outputText value="Welcome" rendered="#{user.role eq ''}" />
 
 				<h:outputText value=" | " />
-				<p:commandLink value="Log Out" action="#{logout.logout()}" rendered="#{user.logged}"
+				<p:commandLink value="Log Out" action="#{logout.logout()}" rendered="#{user.role ne ''}"
 					ajax="false" />
-				<h:link value="Log In" outcome="/public/intro/private" rendered="#{not user.logged}" />
+				<h:link value="Log In" outcome="/public/intro/private" rendered="#{user.role eq ''}" />
 			</h:form>
 		</div>
 	</div>

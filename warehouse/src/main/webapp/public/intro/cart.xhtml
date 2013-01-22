@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://codingcrayons.com/jformbuilder"
+	xmlns:p="http://primefaces.org/ui" template="./templates/layout.xhtml">
+
+	<ui:param name="title" value="Orders" />
+
+	<ui:define name="content">
+		<h:outputStylesheet name="css/menu.css" />
+		<h:outputStylesheet name="css/product.css" />
+		<h:outputStylesheet name="css/cart.css" />
+		<div class="order">
+			<h2>Order Number - #{user.order.uid}</h2>
+			<util:ui instance="#{user.order}" prefix="or1" ignore="uid" edit="false" layout="one-column-layout.xhtml" entity="cz.cvut.warehouse.model.Order" />	
+		</div>
+		<p:dataGrid styleClass="staff-list" var="_product"
+			value="#{user.order.products}" columns="1" rows="2" paginator="true"
+			paginatorTemplate=" {PageLinks}">
+			<div class="image" />
+			<div class="form-item">
+				<util:ui instance="#{_product}" prefix="pr1" edit="false"
+					layout="one-column-layout.xhtml"
+					entity="cz.cvut.warehouse.model.Product" />
+				<br />
+			</div>
+
+		</p:dataGrid>
+		<h:form>
+			<p:commandButton action="#{user.send()}" value="Create Order" ajax="false" styleClass="cart-button" />
+			<p:commandButton action="#{user.clear()}" value="Empty" ajax="false" styleClass="cart-button" />
+		</h:form>
+	</ui:define>
+</ui:composition>

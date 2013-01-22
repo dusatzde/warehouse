@@ -19,7 +19,8 @@ import com.codingcrayons.jformbuilder.annotations.UiPassword;
 
 @Entity
 @Table(name = "userentity")
-@NamedQueries({@NamedQuery(name="UserEntity.findByRole", query="SELECT u FROM UserEntity u WHERE u.role = :role") })
+@NamedQueries({@NamedQuery(name="UserEntity.findByRole", query="SELECT u FROM UserEntity u WHERE u.role = :role") ,
+		       @NamedQuery(name="UserEntity.findByUsername", query="SELECT u FROM UserEntity u WHERE u.email = :username") })
 public class UserEntity extends EntityObject{
 
 	private static final long serialVersionUID = 5241886855226308491L;

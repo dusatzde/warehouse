@@ -40,6 +40,7 @@
 }
 
 #shopping-cart{
+	display: block;
 	background-image: url("#{resource['images:shopping-cart.png']}");
 	background-size:157px 60px;
 	background-repeat: no-repeat;
@@ -49,6 +50,8 @@
 	padding: 5px;
 	float: left;
 	padding-top: 15px;
+	font-size: 1.1em;
+	text-decoration: none;
 }
 
 #shopping-cart #content{
