@@ -1,0 +1,65 @@
+********************************************************************************
+*     Clustering a Stateless Session Bean
+********************************************************************************
+
+@Stateless
+@Clustered
+public class MySessionBean{}
+
+Maven:
+            <dependency>
+                <groupId>org.jboss.ejb3</groupId>
+                <artifactId>jboss-ejb3-ext-api</artifactId>
+                <version>2.0.0-beta-2</version>
+            </dependency>
+
+
+********************************************************************************
+*       Web.xml       Enable HTTP Session replication
+********************************************************************************
+
+ <!--  JBoss Clustering -->
+ <distributable/>
+ 
+********************************************************************************
+*     Standalone Mode: Default Configuration 
+*     
+*     standalone-ha.xml 
+*     standalone-full-ha.xml
+********************************************************************************
+
+jb1 = jboss AS7
+jb2 = jboss AS7
+
+
+cd ../../jb1/bin
+standalone.bat -Djboss.node.name=jb1 --server-config=standalone-ha.xml
+
+cd ../../jb2/bin 
+standalone.bat -Djboss.node.name=jb2 --server-config=standalone-ha.xml -Djboss.socket.binding.port-offset=100
+
+
+********************************************************************************
+*     Load Balancer
+*     
+*     Configure Apache httpd and mod_cluster
+*     
+*      
+********************************************************************************
+
+1)Downloads
+
+Download pre-configured version of the httpd server with mod_cluster for your 
+environment from http://www.jboss.org/mod_cluster/downloads.html.
+
+2)Install in Windows
+
+> cd httpd-2.2\bin 
+> installconf.bat
+
+3)Configuration
+
+To configure the Apache httpd server, open the main configuration file 
+(something like /opt/jboss/httpd/httpd.conf) and add the following to 
+the end of the httpd.conf file. Do not forget to adapt the path to the modules
+accordingly to your system.

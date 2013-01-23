@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 import cz.cvut.warehouse.dao.GenericDao;
 import cz.cvut.warehouse.dao.GenericsUtils;
 
