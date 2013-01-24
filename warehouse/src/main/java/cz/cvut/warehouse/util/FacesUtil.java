@@ -199,7 +199,8 @@ public class FacesUtil {
         return (c == null || c.isEmpty()) ? null : c.iterator().next();
     }
 
-    private static Object getBeanByName(String name) {
+    @SuppressWarnings("unused")
+	private static Object getBeanByName(String name) {
 
         BeanManager bm = getBeanManager();
         Set<Bean<?>> beansFound = bm.getBeans(name);

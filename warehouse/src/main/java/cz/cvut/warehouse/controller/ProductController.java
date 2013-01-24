@@ -31,8 +31,6 @@ public class ProductController extends BaseController {
 		product = new Product();
 		initInfoMessage(registerButton, "OK", "A product has been added successfully.");
 	}
-	
-	
 
 	public Product getProduct() {
 		return product;
@@ -43,19 +41,11 @@ public class ProductController extends BaseController {
 	}
 
 
-
 	public UIComponent getRegisterButton() {
 		return registerButton;
 	}
 
-
-
 	public void setRegisterButton(UIComponent registerButton) {
 		this.registerButton = registerButton;
 	}
-
-
-	
-	
-
 }

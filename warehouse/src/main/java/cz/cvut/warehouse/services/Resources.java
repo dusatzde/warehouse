@@ -1,6 +1,5 @@
 package cz.cvut.warehouse.services;
 
-
 import java.util.logging.Logger;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -9,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 public class Resources {
 
+	@SuppressWarnings("unused")
 	@Produces
 	@PersistenceContext
 	private EntityManager em;

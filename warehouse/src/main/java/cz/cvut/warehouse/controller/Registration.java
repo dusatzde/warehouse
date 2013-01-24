@@ -4,7 +4,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import cz.cvut.warehouse.dao.UserDao;
 import cz.cvut.warehouse.model.UserEntity;
 import cz.cvut.warehouse.util.DigestUtils;

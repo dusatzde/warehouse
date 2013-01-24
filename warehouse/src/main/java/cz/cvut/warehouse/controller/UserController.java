@@ -6,9 +6,6 @@ import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.jboss.ejb3.annotation.Clustered;
-
 import cz.cvut.warehouse.controller.qualifiers.LoggedUser;
 import cz.cvut.warehouse.controller.qualifiers.NewOrder;
 import cz.cvut.warehouse.dao.AddressDao;
@@ -44,7 +41,6 @@ public class UserController extends BaseController {
 	private Order order;
 	
 	private Address address;
-	
 	
 	@PostConstruct
 	@SuppressWarnings("unused")
@@ -156,11 +152,4 @@ public class UserController extends BaseController {
 	public void setCleared(boolean cleared) {
 		this.cleared = cleared;
 	}
-	
-	
-	
-	
-	
-	
-
 }

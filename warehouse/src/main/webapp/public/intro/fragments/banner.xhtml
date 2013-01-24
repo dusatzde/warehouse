@@ -9,9 +9,9 @@
 	<div id="top-header">
 		<h:outputText value="CTU FEE" class="ctu-caption" />
 		<div id="login-bar">
-			<h:link value="Orders" render="true" outcome="/public/intro/staff/orders" />
-			<h:outputText value=" | " />
-			<h:link value="Staff" render="true" outcome="/public/intro/manager/staff" />
+			<h:link value="Orders" rendered="#{(user.role eq 'manager') or (user.role eq 'storekeeper')}" outcome="/public/intro/staff/orders" />
+			<h:outputText value=" | " rendered="#{(user.role eq 'manager') or (user.role eq 'storekeeper')}" />
+			<h:link value="Staff" rendered="#{user.role eq 'manager'}" outcome="/public/intro/manager/staff" />
 		
 			
 			<h:form  style="float: right">

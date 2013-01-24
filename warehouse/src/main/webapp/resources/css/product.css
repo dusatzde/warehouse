@@ -8,12 +8,17 @@
 
 .form-item{
 	padding-bottom: 10px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #cccccc;
 }
 
 .button{
 	float: right;
 	margin-right: 120px;
+}
+
+.add-button{
+	float: right;
+	margin-right: 247px;
 }
 
 .product-list .value{

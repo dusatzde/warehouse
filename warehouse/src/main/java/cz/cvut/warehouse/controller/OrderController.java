@@ -16,7 +16,6 @@ import cz.cvut.warehouse.util.OrderStateType;
 @RequestScoped
 public class OrderController extends BaseController {
 
-	
 	private static final long serialVersionUID = -4011482258636832917L;
 	
 	private List<Order> newOrders;
@@ -26,7 +25,6 @@ public class OrderController extends BaseController {
 	@Inject
 	private OrderDao orderManager;
 	
-	
 	@PostConstruct
 	@SuppressWarnings("unused")
 	private void init(){
@@ -34,13 +32,13 @@ public class OrderController extends BaseController {
 		orders = orderManager.getOrders(OrderStateType.CONFIRMED);
 	}
 	
-	public void confirm(Order order){
+	public String confirm(Order order){
 		order.setState(OrderStateType.CONFIRMED);
 		orderManager.update(order);
+		return redirect("/public/intro/staff/orders");
 	}
 
 	public List<Order> getNewOrders() {
-		System.out.println("ORDER NEW SIZE: " + newOrders.size());
 		return newOrders;
 	}
 

@@ -3,7 +3,6 @@ package cz.cvut.warehouse.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,14 +14,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
 import com.codingcrayons.jformbuilder.annotations.UiIgnore;
 import com.codingcrayons.jformbuilder.annotations.UiOrder;
 
 @Entity
 @Table(name = "orderentity")
 @NamedQueries({@NamedQuery(name="Order.findByState", query="SELECT o FROM Order o WHERE o.state = :state")})
-
 public class Order extends EntityObject{
 
 	private static final long serialVersionUID = 2478854019818433144L;
@@ -97,9 +94,4 @@ public class Order extends EntityObject{
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-	
-	
-	
-	
-
 }

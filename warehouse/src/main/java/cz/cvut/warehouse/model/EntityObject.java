@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,6 +42,7 @@ public abstract class EntityObject implements Serializable {
 		return types;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T extends Enum<T>> List<Enum<T>> getEnumList(Class<T> clazz, Enum<T>... filter) {
 		List<Enum<T>> types = new ArrayList<Enum<T>>();
 		for (T value : clazz.getEnumConstants()) {

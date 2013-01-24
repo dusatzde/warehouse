@@ -13,13 +13,13 @@ import cz.cvut.warehouse.model.Product;
 import cz.cvut.warehouse.util.CategoryType;
 import cz.cvut.warehouse.util.UIDGenerator;
 
-@Named("books")
+@Named("movies")
 @RequestScoped
-public class Books extends BaseController {
+public class Movies extends BaseController {
 
-	private static final long serialVersionUID = -8982856701271786174L;
+	private static final long serialVersionUID = 8453056775844274647L;
 
-	private List<Product> books;
+	private List<Product> movies;
 	
 	@Inject
 	@NewOrder
@@ -32,7 +32,7 @@ public class Books extends BaseController {
 	@PostConstruct
 	@SuppressWarnings("unused")
 	private void init(){
-		books = productManager.getProducts(CategoryType.BOOKS);
+		setMovies(productManager.getProducts(CategoryType.MOVIES));
 		order.setUid(UIDGenerator.getRandomUID());
 		order.setDate(new Date());
 	}
@@ -46,14 +46,11 @@ public class Books extends BaseController {
 		order.setTotalPrice(price);
 	}
 
-
-	public List<Product> getBooks() {
-		return books;
+	public List<Product> getMovies() {
+		return movies;
 	}
 
-
-	public void setBooks(List<Product> books) {
-		this.books = books;
+	public void setMovies(List<Product> movies) {
+		this.movies = movies;
 	}
-
 }

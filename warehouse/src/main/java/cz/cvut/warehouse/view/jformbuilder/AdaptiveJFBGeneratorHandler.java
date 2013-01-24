@@ -4,26 +4,17 @@ import com.codingcrayons.jformbuilder.cache.ResourceCache;
 import com.codingcrayons.jformbuilder.configuration.Context;
 import com.codingcrayons.jformbuilder.ondemand.DefaultJFBGeneratorHandler;
 import java.io.ByteArrayInputStream;
-
-
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.ComponentConfig;
 
-/**
- * Dynamic JFB assembler to Facelets (adaptive to instance changes)
- * 
- * @author tomas
- */
+
 public class AdaptiveJFBGeneratorHandler extends DefaultJFBGeneratorHandler {
 
 	private static final String DEFAULT_CONFIG = "primeFaces";
-	//DEVELOPMENT (10 - cache for 10 sec)
-	//PRODUCTION (-1 cache forever -1)
 	private static final int JFB_CACHE = 10;
 	private Boolean _development = true;
 	private Boolean _debug = false;
@@ -46,9 +37,6 @@ public class AdaptiveJFBGeneratorHandler extends DefaultJFBGeneratorHandler {
 		}
 	}
 
-	/*
-	 * Applies Adaptive settings
-	 */
 	private String applySettings(List<String> profiles) {
 		String calcLayout = null;
 		if (layout != null) {
@@ -60,38 +48,19 @@ public class AdaptiveJFBGeneratorHandler extends DefaultJFBGeneratorHandler {
 		return (calcLayout == null) ? null : ("../../layouts/" + calcLayout);
 	}
 
-	/*
-	 * Template method that addes content (non-Javadoc)
-	 * 
-	 * @see com.jformbuilder.ondemand.GeneratorHandler#hookInputStream()
-	 */
-
-       @Override
+    @Override
 	protected InputStream hookCustomInputStream() {
-		//		Long time = System.currentTimeMillis();
-
 		String role = "admin";
 		String[] roles = {
 				role
 		};
 		List<String> profiles = new ArrayList<String>();
-
 		String appliedLayout = applySettings(profiles);
-
 		InputStream outIS = generateAsIS(classesToInspect, getConfig(), roles, profiles, appliedLayout);
-
-		//		Long timeNow = System.currentTimeMillis();
-		//		Long timeItTook = timeNow - time;
-		//		String out = String.format("%d:%02d:%02d.%03d", timeItTook / 60, timeItTook / 3600, (timeItTook % 3600) / 60,
-		//				(timeItTook % 600));
-		//		System.out.println("TIME (" + this.classesToInspect == null ? entityClassName
-		//				: getFragmentName(classesToInspect) + ") " + out + " (" + timeItTook + "ms)");
-
 		return outIS;
-
 	}
  
-        @Override
+    @Override
 	protected InputStream createInputStream(String s) {
 		try {
 			if (_development) {
@@ -107,17 +76,15 @@ public class AdaptiveJFBGeneratorHandler extends DefaultJFBGeneratorHandler {
 	}
 
 	protected void hookManagerContext(Context context) {
-		// Example how to add context variable
-		context.getVariables().put("tom", "Tomas");
+		context.getVariables().put("adm", "Admin");
 	}
 
-        @Override
+    @Override
 	protected String getConfig() {
 		if (configName == null || configName.getValue().isEmpty()) {
 			return DEFAULT_CONFIG;
 		}
 		return configName.getValue();
 	}
-
 }
 

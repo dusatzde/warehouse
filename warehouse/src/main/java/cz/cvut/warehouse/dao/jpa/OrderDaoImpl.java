@@ -2,17 +2,20 @@ package cz.cvut.warehouse.dao.jpa;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
-
 import org.jboss.ejb3.annotation.Clustered;
-
 import cz.cvut.warehouse.dao.OrderDao;
 import cz.cvut.warehouse.model.Order;
+import cz.cvut.warehouse.util.RoleType;
 
 
 
 @Stateless(name="orderDaoImpl")
 @Clustered
+@DeclareRoles({RoleType.CUSTOMER, RoleType.STOREKEEPER, RoleType.MANAGER})
+@RolesAllowed({RoleType.CUSTOMER, RoleType.STOREKEEPER, RoleType.MANAGER})
 public class OrderDaoImpl extends GenericDaoJPAImpl<Order, Serializable> implements OrderDao{
 
 	@Override

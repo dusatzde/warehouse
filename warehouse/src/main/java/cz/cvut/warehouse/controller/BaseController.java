@@ -1,7 +1,6 @@
 package cz.cvut.warehouse.controller;
 
 import java.io.Serializable;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -39,6 +38,12 @@ abstract public class BaseController implements Serializable{
 
 	protected String getBundleText(String key) {
 		return key == null ? null : new BundleKey(BUNDLE, key).toString();
+	}
+	
+	protected double roundTwoDecimals(double d) {
+		int ix = (int)(d * 100.0); 
+		 d = ((double)ix)/100.0;
+        return d;
 	}
 }
 

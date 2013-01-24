@@ -2,7 +2,6 @@ package cz.cvut.warehouse.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +12,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
-
 import com.codingcrayons.jformbuilder.annotations.UiOrder;
 import com.codingcrayons.jformbuilder.annotations.UiPassword;
 
@@ -31,7 +29,6 @@ public class UserEntity extends EntityObject{
 	private String password;
 	private String phone;
 	private String role;
-	
 	private Address address = new Address();
 	private List<Order> orders= new ArrayList<>();
 	
@@ -119,7 +116,4 @@ public class UserEntity extends EntityObject{
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-	
-	
-
 }
