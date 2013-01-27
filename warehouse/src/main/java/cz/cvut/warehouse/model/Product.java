@@ -29,7 +29,7 @@ public class Product extends EntityObject{
 	private int count;
 	
 	private Category category;
-	private List<Order> orders = new ArrayList<>();
+	private List<Order> orders = new ArrayList<Order>();
 	
 	@Column(name="name")
 	@NotNull

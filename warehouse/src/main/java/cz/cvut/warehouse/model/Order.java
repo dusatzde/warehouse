@@ -30,7 +30,7 @@ public class Order extends EntityObject{
 	private String state;
 	
 	private UserEntity user;
-	private List<Product> products = new ArrayList<>();
+	private List<Product> products = new ArrayList<Product>();
 	
 	@Column(name="uid")
 	@NotNull

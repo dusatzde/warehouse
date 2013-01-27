@@ -10,20 +10,31 @@
 	<name>warehouse</name>
 
 	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 	</properties>
+
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- Arquillian -->
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.0.3.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<!-- Javaee API -->
+
+
 			<dependency>
 				<groupId>org.jboss.spec</groupId>
-				<artifactId>jboss-javaee-web-6.0</artifactId>
+				<artifactId>jboss-javaee-6.0</artifactId>
 				<version>3.0.0.Final</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
@@ -47,11 +58,14 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.picketbox</groupId>
-			<artifactId>picketbox</artifactId>
-			<version>4.0.7.Final</version>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<version>3.0.0.Final</version>
+			<type>pom</type>
+			<scope>provided</scope>
 		</dependency>
-		
+
+
 		<dependency>
 			<groupId>de.schlichtherle.truelicense</groupId>
 			<artifactId>truelicense-core</artifactId>
@@ -238,24 +252,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Needed for running tests (you may also use TestNG) -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Optional, but highly recommended -->
-		<!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) 
-			JPA from JUnit/TestNG -->
-		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-container</artifactId>
-			<version>1.0.0.CR4</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Added -->
+		<!-- JFormBuilder -->
 		<dependency>
 			<groupId>com.codingcrayons.jformbuilder</groupId>
 			<artifactId>jformbuilder</artifactId>
@@ -358,6 +355,27 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.4</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -371,10 +389,14 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
 			</plugin>
 
 			<!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
@@ -403,24 +425,8 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>2.4.3</version>
-						<configuration>
-							<skip>true</skip>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 			<repositories>
-				<repository>
-					<id>prime-repo</id>
-					<name>PrimeFaces Maven Repository</name>
-					<url>http://repository.primefaces.org</url>
-					<layout>default</layout>
-				</repository>
+
 				<repository>
 					<id>jboss-public-repository</id>
 					<name>JBoss Repository</name>
@@ -433,12 +439,28 @@
 						<enabled>true</enabled>
 					</snapshots>
 				</repository>
-
 				<repository>
-					<id>jasperreports</id>
-					<url>http://jasperreports.sourceforge.net/maven2</url>
+					<id>prime-repo</id>
+					<name>PrimeFaces Maven Repository</name>
+					<url>http://repository.primefaces.org</url>
+					<layout>default</layout>
 				</repository>
 			</repositories>
+			<dependencies>
+				<!-- Arquillian -->
+				<dependency>
+					<groupId>org.jboss.arquillian.container</groupId>
+					<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
+					<version>1.0.0.CR3</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.jboss.weld</groupId>
+					<artifactId>weld-core</artifactId>
+					<version>1.1.5.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
 		</profile>
 
 		<profile>
@@ -511,8 +533,12 @@
 						<enabled>false</enabled>
 					</snapshots>
 				</repository>
-
-
+					<repository>
+					<id>prime-repo</id>
+					<name>PrimeFaces Maven Repository</name>
+					<url>http://repository.primefaces.org</url>
+					<layout>default</layout>
+				</repository>
 			</repositories>
 
 			<pluginRepositories>

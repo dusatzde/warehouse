@@ -32,9 +32,8 @@ public abstract class GenericDaoJPAImpl <T, PK extends Serializable> implements 
 	}
 
 	@Override
-	public void delete(T entity) {
-		em.merge(entity);
-		
+	public void delete(final Object id) {
+		em.remove(em.getReference(entityClass, id));
 	}
 
 }

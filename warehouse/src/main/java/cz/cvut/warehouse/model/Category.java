@@ -20,7 +20,7 @@ public class Category extends EntityObject {
 	private String name;
 	private String decription;
 	
-	private List<Product> products = new ArrayList<>();
+	private List<Product> products = new ArrayList<Product>();
 	
 	@Column(name="name")
 	@NotNull

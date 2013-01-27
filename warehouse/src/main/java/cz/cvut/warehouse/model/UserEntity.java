@@ -30,7 +30,7 @@ public class UserEntity extends EntityObject{
 	private String phone;
 	private String role;
 	private Address address = new Address();
-	private List<Order> orders= new ArrayList<>();
+	private List<Order> orders= new ArrayList<Order>();
 	
 	
 	@Column(name = "firstname")
