@@ -1,0 +1,39 @@
+<table cellspacing="0" cellpadding="0" class="classLayout">
+	<tr>
+		<td rowspan="3">$jfb:title$</td>
+		<td>$jfb:firstName$</td>
+	</tr>
+	<tr>
+		<td>$jfb:lastName$</td>
+	</tr>
+	<tr>
+		<td>$jfb:email$</td>
+	</tr>
+	<jfb:iteration-part maxOccurs="1">
+		<tr>
+			<td>$jfb:next$</td>
+			<td>$jfb:next$</td>
+		</tr>
+	</jfb:iteration-part>
+	<tr>
+		<td colspan="2">
+			<h2>And we also need your organization address:</h2>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="3">$jfb:organizationName$</td>
+		<td>$jfb:addressLine1$</td>
+	</tr>
+	<tr>
+		<td>$jfb:addressLine2$</td>
+	</tr>
+	<tr>
+		<td>$jfb:vat$</td>
+	</tr>
+	<jfb:iteration-part maxOccurs="10">
+		<tr>
+			<td>$jfb:next$</td>
+			<td>$jfb:next$</td>
+		</tr>
+	</jfb:iteration-part>
+</table>

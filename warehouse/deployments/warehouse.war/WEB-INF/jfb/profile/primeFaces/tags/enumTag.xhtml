@@ -1,0 +1,9 @@
+<util:selectMenu label="#{text['$entityBean.shortClassName().firstToLower()$.$field$']}"
+				 edit="#{empty edit$field.firstToUpper()$ ? edit : edit$field.firstToUpper()$}"
+				 value="#{$entityBean.shortClassName()$.$field$}"
+				 required="$required$"
+				 type="enum"
+				 title="#{text['title.$entityBean.shortClassName().firstToLower()$.$field$']}"
+				 collection="#{enums.$field$}"
+				 rendered="#{empty render$field.firstToUpper()$ ? 'true' : render$field.firstToUpper()$}"
+				 id="#{prefix}$field$" />

@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<facelet-taglib xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibary_2_0.xsd"
+	version="2.0">
+	<namespace>http://codingcrayons.com/jformbuilder</namespace>
+
+	<!-- FORM -->
+	<tag>
+		<tag-name>outputText</tag-name>
+		<source>jfb/profile/primeFaces/widgets/outputText.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>outputLink</tag-name>
+		<source>jfb/profile/primeFaces/widgets/outputLink.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputText</tag-name>
+		<!-- <source>tags/form/inputText.xhtml</source> -->
+		<source>jfb/profile/primeFaces/widgets/inputText.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputPassword</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputPassword.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputLink</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputLink.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputHtml</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputHtml.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputTextAjax</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputTextAjax.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputTextArea</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputTextArea.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputNumber</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputNumber.xhtml</source>
+	</tag>
+
+	<tag>
+		<tag-name>inputTextSimple</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputTextSimple.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputDate</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputDate.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>inputRichDate</tag-name>
+		<source>jfb/profile/primeFaces/widgets/inputRichDate.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>selectMenu</tag-name>
+		<source>jfb/profile/primeFaces/widgets/selectMenu.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>selectMultiMenu</tag-name>
+		<source>jfb/profile/primeFaces/widgets/selectMultiMenu.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>selectOption</tag-name>
+		<source>jfb/profile/primeFaces/widgets/selectOption.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>checkBox</tag-name>
+		<source>jfb/profile/primeFaces/widgets/checkBox.xhtml</source>
+	</tag>
+
+	<!-- FACELETS FUNCTIONS -->
+        
+	<function>
+		<function-name>toLowerCase</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String toLowerCase(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>capitalize</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String capitalize(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>concat</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String concat(java.lang.Object, java.lang.Object, java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<function-name>length</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>int length(java.lang.Object)</function-signature>
+	</function>
+	<function>
+		<function-name>replaceSpace</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String replaceSpace(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>replace</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String replace(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>nl2br</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String nl2br(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>abbreviate</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String abbreviate(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<!-- UTILS -->
+
+	<function>
+		<function-name>replaceSpaceJSPattern</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String replaceSpaceJSPattern(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>wrapC</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.util.Collection wrapCollection(java.util.Collection)</function-signature>
+	</function>
+
+	<function>
+		<function-name>sort</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.util.List 	sort(java.util.Collection,java.lang.String)</function-signature>
+	</function>
+
+
+	<function>
+		<function-name>first</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.Object first(java.util.Collection)</function-signature>
+	</function>
+
+
+
+	<function>
+		<function-name>split</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>String[] split(java.lang.String,java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>instanceOf</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>boolean instanceOf(java.lang.Object,java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>isIE</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>boolean isIE()</function-signature>
+	</function>
+	<function>
+		<function-name>eval</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>Object eval(java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<function-name>max</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.Integer max(java.lang.Integer,java.lang.Integer)</function-signature>
+	</function>
+	<function>
+		<function-name>min</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.Integer min(java.lang.Integer,java.lang.Integer)</function-signature>
+	</function>
+	<function>
+		<function-name>toHex</function-name>
+		<function-class>cz.cvut.warehouse.util.FacesUtil</function-class>
+		<function-signature>java.lang.String toHex(java.lang.String)</function-signature>
+	</function>
+
+	<tag>
+		<tag-name>ui</tag-name>
+		<component>
+			<component-type>ui</component-type>
+			<renderer-type>uigen.renderer</renderer-type>
+			<handler-class>cz.cvut.warehouse.view.jformbuilder.AdaptiveJFBGeneratorHandler</handler-class>
+		</component>
+	</tag>
+
+</facelet-taglib>

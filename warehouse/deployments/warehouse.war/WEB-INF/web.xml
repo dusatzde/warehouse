@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+ <!--  JBoss Clustering -->
+ <distributable/>
+
+ <!-- JFormBuilder -->
+ <context-param>
+  <description>
+			Enables to cache generated tags. 
+			-1 production
+			10 development (10sec)
+		</description>
+  <param-name>JFB.CACHE</param-name>
+  <param-value>10</param-value>
+ </context-param>
+ <context-param>
+  <description>
+			Debugging (false/true)
+		</description>
+  <param-name>JFB.DEBUG</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <context-param>
+  <description>
+			Metamodel cache (false/true)
+		</description>
+  <param-name>JFB.DEVELOPMENT</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>com.ocpsoft.pretty.DEVELOPMENT</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <description>
+			Enables the ui:debug facelets tag.
+		</description>
+  <param-name>javax.faces.FACELETS_DEVELOPMENT</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+  <param-value>/WEB-INF/util.taglib.xml</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.PROJECT_STAGE</param-name>
+  <param-value>Production</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+  <param-value>server</param-value>
+ </context-param>
+ <context-param>
+  <param-name>primefaces.THEME</param-name>
+  <param-value>casablanca</param-value>
+ </context-param>
+ <filter>
+  <filter-name>encodingFilter</filter-name>
+  <filter-class>cz.cvut.warehouse.util.EncodingFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>encodingFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ <servlet>
+  <servlet-name>Faces Servlet</servlet-name>
+  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet>
+  <servlet-name>JFormBuilder Servlet</servlet-name>
+  <servlet-class>com.codingcrayons.jformbuilder.plugins.j2ee.JFormBuilderServletSeam3</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.cc</url-pattern>
+ </servlet-mapping>
+ <session-config>
+  <session-timeout>2</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>/public/intro/index.cc</welcome-file>
+ </welcome-file-list>
+ 
+ <security-constraint>
+  <display-name>Private area</display-name>
+  <web-resource-collection>
+   <web-resource-name>private</web-resource-name>
+   <url-pattern>/public/intro/private.cc</url-pattern>
+   <url-pattern>/public/intro/cart.cc</url-pattern>
+   <url-pattern>/public/intro/order.cc</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>customer</role-name>
+   <role-name>manager</role-name>
+   <role-name>storekeeper</role-name>
+  </auth-constraint>
+ </security-constraint>
+ 
+  <security-constraint>
+  <display-name>Manager</display-name>
+  <web-resource-collection>
+   <web-resource-name>manager</web-resource-name>
+   <url-pattern>/public/intro/manager/staff.cc</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>manager</role-name>
+  </auth-constraint>
+ </security-constraint>
+ 
+   <security-constraint>
+  <display-name>Employee</display-name>
+  <web-resource-collection>
+   <web-resource-name>staff</web-resource-name>
+   <url-pattern>/public/intro/staff/orders.cc</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>storekeeper</role-name>
+   <role-name>manager</role-name>
+  </auth-constraint>
+ </security-constraint>
+ 
+  <security-constraint>
+        <display-name>Restrict raw XHTML Documents</display-name>
+        <web-resource-collection>
+            <web-resource-name>XHTML</web-resource-name>
+            <url-pattern>*.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint/>
+    </security-constraint>
+ 
+ <!-- Login Prompt -->
+ <login-config>
+  <auth-method>FORM</auth-method>
+  <form-login-config>
+   <form-login-page>/public/intro/login.cc</form-login-page>
+   <form-error-page>/public/intro/login.cc?successful=no</form-error-page>
+  </form-login-config>
+ </login-config>
+ <!-- Roles -->
+ <security-role>
+  <description>Management</description>
+  <role-name>manager</role-name>
+ </security-role>
+ <security-role>
+  <description>Customers</description>
+  <role-name>customer</role-name>
+ </security-role>
+ <security-role>
+  <description>Storekeepers</description>
+  <role-name>storekeeper</role-name>
+ </security-role>
+</web-app>

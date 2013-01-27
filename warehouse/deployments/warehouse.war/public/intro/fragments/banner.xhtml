@@ -1,0 +1,29 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<div id="top-header">
+		<h:outputText value="CTU FEE" class="ctu-caption" />
+		<div id="login-bar">
+			<h:link value="Orders" rendered="#{(user.role eq 'manager') or (user.role eq 'storekeeper')}" outcome="/public/intro/staff/orders" />
+			<h:outputText value=" | " rendered="#{(user.role eq 'manager') or (user.role eq 'storekeeper')}" />
+			<h:link value="Staff" rendered="#{user.role eq 'manager'}" outcome="/public/intro/manager/staff" />
+		
+			
+			<h:form  style="float: right">
+				<h:outputText value="#{user.username}" rendered="#{user.role ne '' }" />
+				<h:outputText value="Welcome" rendered="#{user.role eq ''}" />
+
+				<h:outputText value=" | " />
+				<p:commandLink value="Log Out" action="#{logout.logout()}" rendered="#{user.role ne ''}"
+					ajax="false" />
+				<h:link value="Log In" outcome="/public/intro/private" rendered="#{user.role eq ''}" />
+			</h:form>
+		</div>
+	</div>
+
+</ui:composition>

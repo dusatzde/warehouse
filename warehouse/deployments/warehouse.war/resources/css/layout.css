@@ -1,0 +1,48 @@
+body{
+    margin: 0px;
+    background-color: #EBE8E8;
+    height:100%;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+div#wrapper{
+	min-height: 100%;
+	width: 800px;
+	margin: 0px auto;
+	position: relative;
+	border: 1px solid #c1bfbf;
+	background-color: white;
+}
+
+#top {
+    color: black;
+    width: 800px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+#bottom {
+    clear: both;
+    width: 800px;
+    position: relative; 
+    padding-top: 20px;
+}
+
+
+.center_content {
+    width: 800px;
+}
+
+.cleaner{
+    clear: both;
+}
+
+
+

@@ -1,0 +1,9 @@
+<util:inputRichDate label="#{text['$entityBean.shortClassName().firstToLower()$.$field$']}"
+					edit="#{edit}"
+					value="#{$entityBean.shortClassName()$.$field$}"
+					required="$required$"
+					past="$past$"
+					future="$future$"
+					title="#{text['title.$entityBean.shortClassName().firstToLower()$.$field$']}"
+					rendered="#{empty render$field.firstToUpper()$ ? 'true' : render$field.firstToUpper()$}"
+					id="#{prefix}$field$" />
