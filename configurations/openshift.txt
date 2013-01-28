@@ -39,5 +39,22 @@ phpMyAdmin URL: https://warehouse-javalab.rhcloud.com/phpmyadmin/
 * DEPLOY WEBAPP ON JBOSS AS7
 **************************************************************
 
+based on .git repository push
 video: http://www.youtube.com/watch?v=JXjz9RfrKRE
+
+OR
+
+copy (using SSH) .war file using following commands:
+scp target/warehouse.war 96f84d7c3a264449801e4b8b6befb0ed@warehouse-javalab.rhcloud.com:~/jbossas-7/repo/deployments/
+rhc app restart -a warehouse
+
+**************************************************************
+* STANDALONE.XML, OR OTHER CONFIGURATION
+**************************************************************
+
+openshift configurations are located in ~/jbossas-7/repo/.openshift/config/, NOT as one would have assumed in
+~/jbossas-7/jbossas-7/standalone/configuration/
+
+when you edit standalone.xml, it will be overwritten by the one located in .openshift directory on server restart
+
 
