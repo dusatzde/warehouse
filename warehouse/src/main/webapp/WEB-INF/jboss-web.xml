@@ -2,13 +2,13 @@
 <jboss-web>
   <security-domain>java:/jaas/jaasProject</security-domain>
   <context-root>/warehouse</context-root>
-  
+  <!-- 
       <replication-config>
-        <!-- The default value is SET_AND_NON_PRIMITIVE_GET, therefore the byte array which is carrying the data is considered
-             non-primitive and would cause replication even in read only scenario. -->
-        <replication-trigger>SET</replication-trigger>
+        The default value is SET_AND_NON_PRIMITIVE_GET, therefore the byte array which is carrying the data is considered
+             non-primitive and would cause replication even in read only scenario.
+        <replication-trigger>SET</replication-trigger> -->
 
-        <!-- Replicating entire session is the default. -->
+        <!-- Replicating entire session is the default.
         <replication-granularity>SESSION</replication-granularity>
     </replication-config>
 
@@ -16,5 +16,5 @@
         <use-session-passivation>true</use-session-passivation>
         <passivation-min-idle-time>30</passivation-min-idle-time>
         <passivation-max-idle-time>60</passivation-max-idle-time>
-    </passivation-config>
+    </passivation-config> -->
 </jboss-web>
