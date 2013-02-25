@@ -15,10 +15,9 @@ import cz.cvut.warehouse.model.Address;
 import cz.cvut.warehouse.model.Order;
 import cz.cvut.warehouse.model.UserEntity;
 import cz.cvut.warehouse.util.OrderStateType;
-import org.jboss.ejb3.annotation.Clustered;
+
 
 @Named(value="user")
-@Clustered
 @SessionScoped
 public class UserController extends BaseController {
 	
